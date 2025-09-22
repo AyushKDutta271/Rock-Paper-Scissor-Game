@@ -15,48 +15,57 @@ function getComputerChoice()
 
 function getHumanChoice()
 {
+    let round =0;
+    while(round<=5)
+    {
     let computerChoice = getComputerChoice();
     // console.log("computer choice is :"+computerChoice); 
     let humanChoice = prompt("Rock, Paper Or Scissor").toLowerCase();
     // console.log("human choice is :"+humanChoice); 
 
-    playRound(computerChoice, humanChoice);
+    if(playRound(computerChoice, humanChoice)=="tie")
+    {
+        round=0;
+    }
+    round++;
+    }
+
+    if(computerScore>humanScore)
+    {
+        console.log("Computer is the Final Winner!" + `Scores: Computer Score=${computerScore} , Your Score =${humanScore} `);
+
+    }
+    else if(humanScore>computerScore)
+    {
+        console.log("Human is the Final Winner!");
+    }
+    else{
+        getHumanChoice();
+    }
 }
 
 function playRound(computerChoice,humanChoice)
 {
 
-    // let round =0;
-
-
-// while(round<=3)
-// {
-    
     // console.log("current round is: "+round);
    if((computerChoice=="rock" && humanChoice=="scissor") || (computerChoice=="scissor" && humanChoice=="paper") || (computerChoice=="paper" && humanChoice=="rock") )
    {
     console.log("Computer Beats Human(You)");
     computerScore++;
-    // round++;
    }
     
    else if((humanChoice==="rock" && computerChoice==="scissor") || (humanChoice==="scissor" && computerChoice==="paper") || (humanChoice==="paper" && computerChoice==="rock"))
    {
      console.log("You Beats Computer!");
      humanScore++;
-    //  round++;
    }
 
    else{
     console.log("Both are helpless to beat each other! \nLet's try again!");
     humanScore=0;
     computerScore=0;
-    // round=0;
-    getHumanChoice(); 
+    return "tie";
    }
-
-   
-// }
 
 }
 
