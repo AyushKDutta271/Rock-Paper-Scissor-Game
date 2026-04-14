@@ -1,0 +1,21 @@
+.container{ 
+    height:380px;
+    width:30%;
+    margin:10% auto;
+    display:flex;
+    border:2px solid black;
+    justify-content: space-between;
+    align-items: center;
+    float:left;
+}
+
+button{
+    height:15%;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.results{
+    float:right;
+     margin:10% auto;
+}
